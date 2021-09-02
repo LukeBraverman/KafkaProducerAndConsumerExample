@@ -1,6 +1,5 @@
 package com.kafkaconsumeandproducetodatabase.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 
@@ -8,18 +7,20 @@ import lombok.Data;
 public class Message {
 
      String message;
-     String UID;
+     String anId;
      String topic;
 
     public String getMessage() {
         return message;
     }
 
-    public String getUID() {
-        return UID;
+    public String getAnId() {
+        return anId;
     }
 
     public String getTopic() {
         return topic;
     }
+
+
 }
