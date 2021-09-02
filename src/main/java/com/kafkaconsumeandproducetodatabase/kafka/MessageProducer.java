@@ -9,7 +9,7 @@ public class MessageProducer extends BaseMessageProducer {
 
     public MessageProducer(
             @Qualifier("KafkaMessageSender")
-            KafkaTemplate<String, String> kafkaTemplate )
+            KafkaTemplate<String, String> kafkaTemplate)
     {
         super(kafkaTemplate);
     }

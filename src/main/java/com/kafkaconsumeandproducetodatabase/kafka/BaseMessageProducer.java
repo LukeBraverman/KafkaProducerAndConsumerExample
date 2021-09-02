@@ -21,6 +21,7 @@ public abstract class BaseMessageProducer {
 
     }
 
+
     public void send(final Message message) throws JsonProcessingException {
 
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
