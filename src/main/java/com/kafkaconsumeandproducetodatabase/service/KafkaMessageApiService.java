@@ -1,6 +1,6 @@
 package com.kafkaconsumeandproducetodatabase.service;
 
-import com.kafkaconsumeandproducetodatabase.kafka.KafkaProducerConfigs;
+import com.kafkaconsumeandproducetodatabase.configs.KafkaProducerConfigs;
 import com.kafkaconsumeandproducetodatabase.model.Message;
 import com.kafkaconsumeandproducetodatabase.model.SearchWithUID;
 import lombok.AllArgsConstructor;
@@ -15,9 +15,9 @@ public class KafkaMessageApiService {
 
     }
 
-    public void getMessageFromElasticSearchViaUID(SearchWithUID searchWithUID) {
+    public Message getMessageFromElasticSearchViaUID(SearchWithUID searchWithUID) {
 
-
+    return new Message();
     }
 
 }
