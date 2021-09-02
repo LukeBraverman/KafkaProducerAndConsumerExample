@@ -5,6 +5,19 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Message {
 
-    private String message;
-    private String UID;
+     String message;
+     String UID;
+     String topic;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public String getUID() {
+        return UID;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
 }
