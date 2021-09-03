@@ -7,15 +7,15 @@ import lombok.Data;
 public class Message {
 
      String message;
-     String anId;
+     String UID;
      String topic;
 
     public String getMessage() {
         return message;
     }
 
-    public String getAnId() {
-        return anId;
+    public String getUID() {
+        return UID;
     }
 
     public String getTopic() {

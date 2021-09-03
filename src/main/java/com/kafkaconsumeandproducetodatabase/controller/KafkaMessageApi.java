@@ -23,7 +23,7 @@ public class KafkaMessageApi {
     @PostMapping("/Post")
     public Object postMessageToElasticSearch(@RequestBody Message message) throws JsonProcessingException {
         String randomUID = UUID.randomUUID().toString();
-        message.setAnId(randomUID);
+        message.setUID(randomUID);
         kafkaMessageApiService.postMessageToKafkaTopic(message);
         return ResponseEntity.status(HttpStatus.CREATED).body("Posted message to database with uid " + randomUID);
     }

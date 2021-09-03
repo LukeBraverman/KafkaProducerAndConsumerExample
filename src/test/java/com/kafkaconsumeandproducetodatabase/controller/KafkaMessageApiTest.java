@@ -81,7 +81,7 @@ class KafkaMessageApiTest {
         String searchWithUID = "{\"UID\":\"12345\"" +
                "}";
         Message testMessage = new Message();
-        testMessage.setAnId("12345");
+        testMessage.setUID("12345");
         testMessage.setMessage("testMessage");
         testMessage.setTopic("testTopic");
 
