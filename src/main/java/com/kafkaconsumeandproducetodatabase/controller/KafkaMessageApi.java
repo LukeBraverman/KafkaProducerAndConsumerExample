@@ -31,11 +31,10 @@ public class KafkaMessageApi {
     @GetMapping(value = "/Get", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String getMessageFromElasticSearchViaUID(@RequestBody SearchWithUID searchWithUID) throws JsonProcessingException {
-        Message message = kafkaMessageApiService.getMessageFromElasticSearchViaUID(searchWithUID);
+        System.out.println("Pinged");
+        String jsonMessage = kafkaMessageApiService.getMessageFromElasticSearchViaUID(searchWithUID);
 
 
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String jsonMessage = ow.writeValueAsString(message);
 
         return jsonMessage;
     }

@@ -90,7 +90,7 @@ class KafkaMessageApiTest {
 
 
 
-        when(kafkaMessageApiService.getMessageFromElasticSearchViaUID(any(SearchWithUID.class))).thenReturn(testMessage);
+        when(kafkaMessageApiService.getMessageFromElasticSearchViaUID(any(SearchWithUID.class))).thenReturn("testMessage");
 
         //when
         final MvcResult mvcResult = mockMvc.perform(

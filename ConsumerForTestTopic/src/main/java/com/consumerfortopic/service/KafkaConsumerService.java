@@ -7,6 +7,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class KafkaConsumerService {
@@ -23,5 +25,14 @@ public class KafkaConsumerService {
         ObjectMapper mapper = new ObjectMapper();
         Message messageReceived = mapper.readValue(messageInJson, Message.class);
         return messageReceived;
+    }
+
+    public String getMessageFromDatabase_thenConvertToJSON(String UID) {
+        String json;
+        Optional<Message> message = messageRepository.findById(UID);
+        return message.toString();
+
+
+
     }
 }
