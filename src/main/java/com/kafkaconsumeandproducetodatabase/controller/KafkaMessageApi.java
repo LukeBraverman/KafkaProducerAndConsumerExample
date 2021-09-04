@@ -1,8 +1,6 @@
 package com.kafkaconsumeandproducetodatabase.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.kafkaconsumeandproducetodatabase.model.Message;
 import com.kafkaconsumeandproducetodatabase.model.SearchWithUID;
 import com.kafkaconsumeandproducetodatabase.service.KafkaMessageApiService;
@@ -32,7 +30,7 @@ public class KafkaMessageApi {
     @ResponseBody
     public String getMessageFromElasticSearchViaUID(@RequestBody SearchWithUID searchWithUID) throws JsonProcessingException {
         System.out.println("Pinged");
-        String jsonMessage = kafkaMessageApiService.getMessageFromElasticSearchViaUID(searchWithUID);
+        String jsonMessage = kafkaMessageApiService.getMessageFromPostgresViaUID(searchWithUID);
 
 
 

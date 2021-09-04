@@ -56,24 +56,7 @@ class KafkaMessageApiTest {
         verify(kafkaMessageApiService, times(1)).postMessageToKafkaTopic(any(Message.class));
     }
 
-//    @Test
-//    void POSTInvalidMessageToElasticSearch_ReturnException() throws Exception {
-//        //given
-//        String InvalidJsonPayload = "{\"NOTVALID\":\"\"," +
-//                " \"NOTVALID\": \"\"" +
-//                ",\"NOTVLAID\":" + "\"\"}";
-//        doNothing().when(kafkaMessageApiService).postMessageToKafkaTopic(any(Message.class));
-//        //when
-//        mockMvc.perform(
-//                post("/KMApi/Post")
-//                        .content(InvalidJsonPayload)
-//                        .contentType(MediaType.APPLICATION_JSON))
-//
-//                .andExpect(status().isBadRequest())
-//                .andReturn();
-//        //then
-//        verify(kafkaMessageApiService, times(0)).postMessageToKafkaTopic(any(Message.class));
-//    }
+
 
     @Test
     void GETMessageFORMDatabase_returnMessageInDatabase() throws Exception {
@@ -90,7 +73,7 @@ class KafkaMessageApiTest {
 
 
 
-        when(kafkaMessageApiService.getMessageFromElasticSearchViaUID(any(SearchWithUID.class))).thenReturn("testMessage");
+        when(kafkaMessageApiService.getMessageFromPostgresViaUID(any(SearchWithUID.class))).thenReturn("testMessage");
 
         //when
         final MvcResult mvcResult = mockMvc.perform(
@@ -104,32 +87,8 @@ class KafkaMessageApiTest {
         //then
 
         assertEquals(jsonMessageInTest,content,"Response body not as expected");
-        verify(kafkaMessageApiService,times(1)).getMessageFromElasticSearchViaUID(any(SearchWithUID.class));
+        verify(kafkaMessageApiService,times(1)).getMessageFromPostgresViaUID(any(SearchWithUID.class));
     }
-//
-//    @Test
-//    void GETMessageFORMDatabaseWithInvalidRequest_returnBadRequest() throws Exception {
-//        //given
-//        String searchWithUID = "{\"INVALID\":\"\"" +
-//                "}";
-//        Message testMessage = new Message();
-//        testMessage.setUID("12345");
-//        testMessage.setMessage("testMessage");
-//        testMessage.setTopic("testTopic");
-//
-//        when(kafkaMessageApiService.getMessageFromElasticSearchViaUID(any(SearchWithUID.class))).thenReturn(testMessage);
-//
-//        //when
-//        final MvcResult mvcResult = mockMvc.perform(
-//                get("/KMApi/Get")
-//                        .content(searchWithUID)
-//                        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isBadRequest())
-//                .andReturn();
-//
-//        //then
-//
-//        verify(kafkaMessageApiService,times(0)).getMessageFromElasticSearchViaUID(any(SearchWithUID.class));
-//    }
+
 
 }
